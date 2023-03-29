@@ -77,6 +77,46 @@ export const adminLoginController = async (req,res) => {
         res.json(error.message);
     }
 }
+export const deleteUser = async (req, res) => {
+  try {
+    
+    const deletedUser = await User.findByIdAndDelete(req.userAuth);
+
+    if (!deletedUser) {
+      return res.json({ message: "User not found" });
+    }
+
+    return res.json({
+      message: "User deleted successfully",
+      data: {
+        id: deletedUser._id,
+        firstname: deletedUser.firstname,
+        lastname: deletedUser.lastname,
+        email: deletedUser.email,
+      },
+    });
+  } catch (error) {
+    res.json(error.message);
+  }
+};
+export const convertToAdmin = async (req, res) => {
+  const { userId } = req.params.id;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.admin = true;
+    await user.save();
+
+    res.status(200).json({ message: "User successfully converted to admin" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 export const medication = async (req,res) => {
     try{

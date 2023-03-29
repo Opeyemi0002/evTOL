@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
     ProfilePic:{
         type:String,
     },
+     admin:{
+        type:Boolean,
+        default:false
+    },
     Blocked:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
