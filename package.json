@@ -1,0 +1,30 @@
+{
+  "name": "evtol",
+  "version": "1.0.0",
+  "description": "evtol- a drone for carrying medications",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opeyemi0002/evTOL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opeyemi0002/evTOL/issues"
+  },
+  "homepage": "https://github.com/Opeyemi0002/evTOL#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.1",
+    "nodemon": "^2.0.20"
+  }
+}
